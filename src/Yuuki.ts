@@ -1,11 +1,16 @@
 import dotenv from "dotenv"
+import Discord from "discord.js";
 
-export default class Yuuki {
+export = class Bot extends Discord.Client {
 
-    static init() {
+    init() {
         dotenv.config()
-        console.log(process.env.DISCORD)
-        console.log(process.env.VOICETEXT)
+        this.login(process.env.DISCORD)
+            .then(() => {
+                this.on('message', async msg => {
+
+                })
+            })
     }
 
 }
