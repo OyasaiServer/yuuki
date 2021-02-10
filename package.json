@@ -1,0 +1,17 @@
+{
+  "name": "yuuki",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/OyasaiServer/yuuki.git",
+  "scripts": {
+    "test": "tsc && npm start",
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
