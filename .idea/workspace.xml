@@ -6,10 +6,13 @@
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/yuuki.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/Yuuki.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Yuuki.js.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Yuuki.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +76,7 @@
       <updated>1612967984415</updated>
       <workItem from="1612967985801" duration="3786000" />
       <workItem from="1612978412474" duration="314000" />
-      <workItem from="1612978732936" duration="864000" />
+      <workItem from="1612978732936" duration="1174000" />
     </task>
     <servers />
   </component>
