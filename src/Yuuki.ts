@@ -8,7 +8,9 @@ export = class Bot extends Discord.Client {
         this.login(process.env.DISCORD)
             .then(() => {
                 this.on('message', async msg => {
-
+                    if (msg.content === "test") {
+                        msg.reply("Hello")
+                    }
                 })
             })
     }
