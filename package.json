@@ -12,7 +12,8 @@
   "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.25"

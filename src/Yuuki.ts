@@ -1,7 +1,11 @@
+import dotenv from "dotenv"
+
 export default class Yuuki {
 
     static init() {
-        console.log("Hello, world!")
+        dotenv.config()
+        console.log(process.env.DISCORD)
+        console.log(process.env.VOICETEXT)
     }
 
 }

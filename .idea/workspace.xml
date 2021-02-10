@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19c02c7f-bf2d-4fcb-8909-e831e0941e43" name="デフォルト変更リスト" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Yuuki.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Yuuki.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +70,7 @@
       <updated>1612967984415</updated>
       <workItem from="1612967985801" duration="3786000" />
       <workItem from="1612978412474" duration="314000" />
-      <workItem from="1612978732936" duration="1883000" />
+      <workItem from="1612978732936" duration="2780000" />
     </task>
     <servers />
   </component>
