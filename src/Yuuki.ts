@@ -1,18 +1,21 @@
-import dotenv from "dotenv"
 import Discord from "discord.js";
+import Config from "./Config";
+import VoiceManager from "./VoiceManager";
 
 export = class Bot extends Discord.Client {
 
     init() {
-        dotenv.config()
+
+        Config.load()
         this.login(process.env.DISCORD)
             .then(() => {
-                this.on('message', async msg => {
-                    if (msg.content === "test") {
-                        msg.reply("Hello")
+                this.on('message', async message => {
+                    if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
+                        VoiceManager.append(message)
                     }
                 })
             })
+
     }
 
 }
