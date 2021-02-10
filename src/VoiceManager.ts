@@ -4,7 +4,7 @@ export default class VoiceManager {
 
     static append(message: Message) {
 
-        
+
 
     }
 

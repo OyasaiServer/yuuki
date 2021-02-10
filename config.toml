@@ -1,5 +1,3 @@
-title = "TOML の例"
-
 [channels]
     [channels.text]
     1 = "782203773661347850"
