@@ -1,7 +1,7 @@
 import toml from 'toml'
 import fs from "fs";
 import dotenv from "dotenv";
-
+import { Channel, Collection, Snowflake } from "discord.js";
 export default class Config {
 
     static channels: {
@@ -15,6 +15,7 @@ export default class Config {
             2: string,
             3: string
         }
+        cache:  Collection<Snowflake, Channel>
     } | undefined
 
     static load() {
@@ -23,7 +24,7 @@ export default class Config {
             this,
             toml.parse(fs.readFileSync("config.toml").toString())
         )
-        Object.freeze(this)
     }
+
 
 }

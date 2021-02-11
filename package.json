@@ -11,8 +11,12 @@
   "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@discordjs/opus": "^0.4.0",
+    "@shooontan/voicetext": "^0.0.2",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "toml": "^3.0.0",
     "voice-text": "^0.1.2"
   },

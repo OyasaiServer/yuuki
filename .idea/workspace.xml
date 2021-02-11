@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19c02c7f-bf2d-4fcb-8909-e831e0941e43" name="デフォルト変更リスト" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/voice/605074803887702032_809213769640443914.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/voice/605074803887702032_809213775546286120.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/voice/605074803887702032_809213785184534610.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VoiceManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoiceManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Yuuki.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Yuuki.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -23,6 +28,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1oIJ4wledZwi8qJ4eOlEdZ9sbrk" />
   <component name="ProjectLevelVcsManager">
@@ -70,7 +83,7 @@
       <updated>1612967984415</updated>
       <workItem from="1612967985801" duration="3786000" />
       <workItem from="1612978412474" duration="314000" />
-      <workItem from="1612978732936" duration="11096000" />
+      <workItem from="1612978732936" duration="21475000" />
     </task>
     <servers />
   </component>

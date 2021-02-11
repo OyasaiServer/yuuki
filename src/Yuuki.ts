@@ -2,18 +2,25 @@ import Discord from "discord.js";
 import Config from "./Config";
 import VoiceManager from "./VoiceManager";
 import fs from "fs";
+import {setInterval} from "timers";
 
-export = class Bot extends Discord.Client {
+export = class Yuuki extends Discord.Client {
 
     init() {
 
         Config.load();
 
-        ["assets", "assets/voice", "assets/image"].forEach(fs.mkdirSync)
+        ["assets", "assets/voice", "assets/image"].forEach(it => fs.mkdir(it, () => {}))
+
+        Config.channels!!.cache = this.channels.cache
+
+        setInterval(() => {
+            console.log(VoiceManager.queue)
+        }, 1000)
 
         this.login(process.env.DISCORD)
             .then(() => {
-                this.on('message', async message => {
+                this.on('message', message => {
 
                     if (message.author.bot) return
 
