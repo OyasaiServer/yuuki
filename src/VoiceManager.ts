@@ -1,4 +1,3 @@
-import DraftLog from 'draftlog'
 import {　Message, VoiceChannel　} from "discord.js";
 import { createWriteStream } from 'fs';
 import Config from "./Config";
@@ -9,8 +8,6 @@ export default class VoiceManager {
     static queue: Promise<{
         vc: string
         mg: string
-        log: any
-        completeLog: string
     }>[] = []
 
     static append(message: Message) {
@@ -19,6 +16,7 @@ export default class VoiceManager {
                 const i = Object.values(Config.channels!!.text).indexOf(message.channel.id)
                 const vc = Object.values(Config.channels!!.voice)[i]
                 const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
+                console.log(`[聞き専${i}] ${message.author.username}: ${message.content}`)
                 Config.vt
                     .stream(message.content, {
                         format: 'ogg',
@@ -30,10 +28,7 @@ export default class VoiceManager {
                 ws.on('finish', () => {
                     resolve({
                         vc: vc,
-                        mg: message.id,
-                        // @ts-ignore
-                        log: console.draft(`[PENDING] [聞き専${i}] ${message.author.username}: ${message.content}`),
-                        completeLog: `[聞き専${i}] ${message.author.username}: ${message.content}`
+                        mg: message.id
                     })
                 })
             }))
@@ -50,7 +45,6 @@ export default class VoiceManager {
                 .then(conn => {
                     conn.play(`assets/voice/${id.vc}_${id.mg}.ogg`)
                         .on('finish', () => {
-                            id.log(id.completeLog)
                             this.queue.shift()
                             fs.unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
                                 if (this.queue.length > 0) {
