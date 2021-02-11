@@ -3,6 +3,7 @@ import {　VoiceText　} from 'voice-text';
 import {　Message, VoiceChannel　} from "discord.js";
 import { createWriteStream } from 'fs';
 import Config from "./Config";
+import fs from 'fs';
 
 export default class VoiceManager {
 
@@ -49,11 +50,11 @@ export default class VoiceManager {
                     conn.play(`assets/voice/${id.vc}_${id.mg}.ogg`)
                         .on('finish', () => {
                             this.queue.shift()
-                            setTimeout(() => {
+                            fs.unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
                                 if (this.queue.length > 0) {
                                     this.speak()
                                 }
-                            }, 500)
+                            })
                         })
                 })
         })

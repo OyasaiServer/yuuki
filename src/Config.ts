@@ -19,7 +19,7 @@ export default class Config {
         }
         cache:  Collection<Snowflake, Channel>
     } | undefined
-    
+
     static vt: VoiceText;
 
     static load() {
