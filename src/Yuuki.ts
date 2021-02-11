@@ -14,10 +14,6 @@ export = class Yuuki extends Discord.Client {
 
         Config.channels!!.cache = this.channels.cache
 
-        setInterval(() => {
-            console.log(VoiceManager.queue)
-        }, 1000)
-
         this.login(process.env.DISCORD)
             .then(() => {
                 this.on('message', message => {

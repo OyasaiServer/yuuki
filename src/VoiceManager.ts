@@ -7,8 +7,6 @@ import fs from "fs";
 
 export default class VoiceManager {
 
-    static vt = new VoiceText(process.env.VOICETEXT)
-
     static queue: Promise<{
         vc: string,
         mg: string
@@ -22,7 +20,7 @@ export default class VoiceManager {
                     Object.values(Config.channels!!.text).indexOf(message.channel.id)
                     ]
                 const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
-                this.vt
+                Config.vt
                     .stream(message.content, {
                         format: 'ogg',
                         speaker: 'show',
