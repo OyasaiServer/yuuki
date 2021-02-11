@@ -1,4 +1,3 @@
-// @ts-ignore
 import {　VoiceText　} from 'voice-text';
 import toml from 'toml'
 import fs from "fs";

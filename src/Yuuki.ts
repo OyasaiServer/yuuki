@@ -2,12 +2,15 @@ import Discord from "discord.js";
 import Config from "./Config";
 import VoiceManager from "./VoiceManager";
 import fs from "fs";
+import draftLog from 'draftlog'
 
 export = class Yuuki extends Discord.Client {
 
     init() {
 
         Config.load();
+
+        draftLog(console);
 
         ["assets", "assets/voice", "assets/image"].forEach(it => fs.mkdir(it, () => {}))
 

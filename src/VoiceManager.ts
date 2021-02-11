@@ -1,5 +1,4 @@
-// @ts-ignore
-import {　VoiceText　} from 'voice-text';
+import DraftLog from 'draftlog'
 import {　Message, VoiceChannel　} from "discord.js";
 import { createWriteStream } from 'fs';
 import Config from "./Config";
@@ -8,16 +7,17 @@ import fs from 'fs';
 export default class VoiceManager {
 
     static queue: Promise<{
-        vc: string,
+        vc: string
         mg: string
+        log: any
+        completeLog: string
     }>[] = []
 
     static append(message: Message) {
         if (this.isShouldSpeak(message.content)) {
             this.queue.push(new Promise(resolve => {
-                const vc = Object.values(Config.channels!!.voice)[
-                    Object.values(Config.channels!!.text).indexOf(message.channel.id)
-                    ]
+                const i = Object.values(Config.channels!!.text).indexOf(message.channel.id)
+                const vc = Object.values(Config.channels!!.voice)[i]
                 const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
                 Config.vt
                     .stream(message.content, {
@@ -30,7 +30,10 @@ export default class VoiceManager {
                 ws.on('finish', () => {
                     resolve({
                         vc: vc,
-                        mg: message.id
+                        mg: message.id,
+                        // @ts-ignore
+                        log: console.draft(`[PENDING] [聞き専${i}] ${message.author.username}: ${message.content}`),
+                        completeLog: `[聞き専${i}] ${message.author.username}: ${message.content}`
                     })
                 })
             }))
@@ -47,6 +50,7 @@ export default class VoiceManager {
                 .then(conn => {
                     conn.play(`assets/voice/${id.vc}_${id.mg}.ogg`)
                         .on('finish', () => {
+                            id.log(id.completeLog)
                             this.queue.shift()
                             fs.unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
                                 if (this.queue.length > 0) {
