@@ -4,6 +4,7 @@ import toml from 'toml'
 import fs from "fs";
 import dotenv from "dotenv";
 import { Channel, Collection, Snowflake } from "discord.js";
+
 export default class Config {
 
     static channels: {

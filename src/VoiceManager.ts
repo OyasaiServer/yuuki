@@ -12,10 +12,8 @@ export default class VoiceManager {
         mg: string
     }>[] = []
 
-    static isActive: boolean = false
-
     static append(message: Message) {
-        if (this.isReadable(message.content)) {
+        if (this.isShouldSpeak(message.content)) {
             this.queue.push(new Promise(resolve => {
                 const vc = Object.values(Config.channels!!.voice)[
                     Object.values(Config.channels!!.text).indexOf(message.channel.id)
@@ -60,7 +58,7 @@ export default class VoiceManager {
         })
     }
 
-    static isReadable(content: string) {
+    static isShouldSpeak(content: string) {
         return !(content.length > 30 || new RegExp([":", "http", "@", "#"].join("|")).test(content))
     }
 

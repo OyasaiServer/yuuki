@@ -16,9 +16,7 @@ export = class Yuuki extends Discord.Client {
         this.login(process.env.DISCORD)
             .then(() => {
                 this.on('message', message => {
-
                     if (message.author.bot) return
-
                     if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
                         VoiceManager.append(message)
                     }
