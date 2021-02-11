@@ -59,7 +59,11 @@ export default class VoiceManager {
     }
 
     static isShouldSpeak(content: string) {
-        return !(content.length > 30 || new RegExp([":", "http", "@", "#"].join("|")).test(content))
+        return !(
+            content.length === 0 ||
+            content.length > 30 ||
+            new RegExp([":", "http", "@", "#"].join("|")).test(content)
+        )
     }
 
 }
