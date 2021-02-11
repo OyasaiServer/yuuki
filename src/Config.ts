@@ -1,9 +1,9 @@
+// @ts-ignore
+import {　VoiceText　} from 'voice-text';
 import toml from 'toml'
 import fs from "fs";
 import dotenv from "dotenv";
 import { Channel, Collection, Snowflake } from "discord.js";
-// @ts-ignore
-import {　VoiceText　} from 'voice-text';
 export default class Config {
 
     static channels: {
@@ -19,6 +19,7 @@ export default class Config {
         }
         cache:  Collection<Snowflake, Channel>
     } | undefined
+    
     static vt: VoiceText;
 
     static load() {

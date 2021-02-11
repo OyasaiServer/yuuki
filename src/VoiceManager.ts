@@ -3,7 +3,6 @@ import {　VoiceText　} from 'voice-text';
 import {　Message, VoiceChannel　} from "discord.js";
 import { createWriteStream } from 'fs';
 import Config from "./Config";
-import fs from "fs";
 
 export default class VoiceManager {
 
@@ -11,6 +10,7 @@ export default class VoiceManager {
         vc: string,
         mg: string
     }>[] = []
+
     static isActive: boolean = false
 
     static append(message: Message) {

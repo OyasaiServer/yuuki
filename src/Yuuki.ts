@@ -2,7 +2,6 @@ import Discord from "discord.js";
 import Config from "./Config";
 import VoiceManager from "./VoiceManager";
 import fs from "fs";
-import {setInterval} from "timers";
 
 export = class Yuuki extends Discord.Client {
 
