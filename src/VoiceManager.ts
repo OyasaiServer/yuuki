@@ -16,7 +16,7 @@ export default class VoiceManager {
                 const i = Object.values(Config.channels!!.text).indexOf(message.channel.id)
                 const vc = Object.values(Config.channels!!.voice)[i]
                 const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
-                console.log(`[聞き専${i}] ${message.author.username}: ${message.content}`)
+                console.log(`[聞き専${i+1}] ${message.author.username}: ${message.content}`)
                 Config.vt
                     .stream(message.content, {
                         format: 'ogg',
