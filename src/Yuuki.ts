@@ -7,6 +7,11 @@ export = class Yuuki extends Discord.Client {
 
     init() {
 
+        setTimeout(() => {
+            console.log("Rebooting...")
+            process.exit(0)
+        }, 21590000)
+
         Config.load();
         ["assets", "assets/voice", "assets/image"].forEach(it => fs.mkdir(it, () => {}))
         Config.channels!!.cache = this.channels.cache
