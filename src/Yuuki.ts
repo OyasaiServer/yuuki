@@ -16,7 +16,7 @@ export = class Yuuki extends Discord.Client {
                 setTimeout(() => {
                     console.log("Rebooting...")
                     this.destroy()
-                }, 1000)
+                }, 21595000)
 
                 this.on('message', message => {
                     if (message.author.bot) return
@@ -24,7 +24,6 @@ export = class Yuuki extends Discord.Client {
                         VoiceManager.append(message)
                     }
                 })
-
             })
 
     }
