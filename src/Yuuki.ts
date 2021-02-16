@@ -7,22 +7,24 @@ export = class Yuuki extends Discord.Client {
 
     init() {
 
-        setTimeout(() => {
-            console.log("Rebooting...")
-            process.exit(0)
-        }, 21590000)
-
         Config.load();
         ["assets", "assets/voice", "assets/image"].forEach(it => fs.mkdir(it, () => {}))
         Config.channels!!.cache = this.channels.cache
         this.login(process.env.DISCORD)
             .then(() => {
+
+                setTimeout(() => {
+                    console.log("Rebooting...")
+                    this.destroy()
+                }, 1000)
+
                 this.on('message', message => {
                     if (message.author.bot) return
                     if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
                         VoiceManager.append(message)
                     }
                 })
+
             })
 
     }
