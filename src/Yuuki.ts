@@ -13,10 +13,7 @@ export = class Yuuki extends Discord.Client {
         this.login(process.env.DISCORD)
             .then(() => {
 
-                setTimeout(() => {
-                    console.log("Rebooting...")
-                    this.destroy()
-                }, 21595000)
+                setTimeout(this.reboot, 21595000)
 
                 this.on('message', message => {
                     if (message.author.bot) return
@@ -26,6 +23,17 @@ export = class Yuuki extends Discord.Client {
                 })
             })
 
+    }
+
+    reboot() {
+        try {
+            Object.values(Config.channels!!.text).forEach(it => {
+                // @ts-ignore
+                this.channels.cache.get(it)!!.send("再起動します...")
+            })
+        } catch (e) { console.log(e) }
+        console.log("Rebooting...")
+        this.destroy()
     }
 
 }
