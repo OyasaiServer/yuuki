@@ -11,12 +11,6 @@
     "build": "tsc",
     "start": "node ."
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
-    }
-  },
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "@typeit/discord": "^4.0.9",
@@ -35,7 +29,6 @@
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",
     "gts": "^3.1.0",
-    "husky": "^5.0.9",
     "prettier": "^2.2.1",
     "typescript": "^4.1.5"
   }
