@@ -1,8 +1,5 @@
-import {　VoiceText　} from 'voice-text';
-import toml from 'toml'
-import fs from "fs";
-import dotenv from "dotenv";
-import { Channel, Collection, Snowflake } from "discord.js";
+import { parse } from 'toml'
+import { readFileSync } from 'fs'
 
 export default class Config {
 
@@ -17,19 +14,13 @@ export default class Config {
             2: string,
             3: string
         }
-        cache:  Collection<Snowflake, Channel>
     } | undefined
 
-    static vt: VoiceText;
-
     static load() {
-        dotenv.config()
-        this.vt = new VoiceText(process.env.VOICETEXT)
         Object.assign(
             this,
-            toml.parse(fs.readFileSync("config.toml").toString())
+            parse(readFileSync("config.toml").toString())
         )
     }
-
 
 }

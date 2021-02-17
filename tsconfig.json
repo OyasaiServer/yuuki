@@ -1,20 +1,32 @@
 {
-  "exclude": [
-    "index.js",
-    "test.js",
-    "bin"
-  ],
   "compilerOptions": {
-    "target": "ES2020",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "allowJs": true,
-    "outDir": "./bin",
-    "rootDir": "./src",
-    "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
-    "forceConsistentCasingInFileNames": true
-  }
+    "noImplicitReturns": true,
+    "pretty": true,
+    "sourceMap": true,
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2018",
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": [
+      "es2017",
+      "es2018",
+      "esnext.asynciterable",
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "index.js"
+  ]
 }

@@ -1,7 +1,8 @@
 import {　Message, VoiceChannel　} from "discord.js";
-import { createWriteStream } from 'fs';
+import { createWriteStream, unlink } from 'fs';
+import { VoiceText } from 'voice-text';
+import { Yuuki } from "./Yuuki.js";
 import Config from "./Config";
-import fs from 'fs';
 
 export default class VoiceManager {
 
@@ -17,7 +18,7 @@ export default class VoiceManager {
                 const vc = Object.values(Config.channels!!.voice)[i]
                 const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
                 console.log(`[聞き専${i+1}] ${message.author.username}: ${message.content}`)
-                Config.vt
+                new VoiceText(process.env.VOICETEXT)
                     .stream(message.content, {
                         format: 'ogg',
                         speaker: 'show',
@@ -40,13 +41,13 @@ export default class VoiceManager {
 
     static speak() {
         this.queue[0].then((id) => {
-            (Config.channels!!.cache.get(id.vc) as VoiceChannel)
+            (Yuuki.instance.channels.cache.get(id.vc) as VoiceChannel)
                 .join()
                 .then(conn => {
                     conn.play(`assets/voice/${id.vc}_${id.mg}.ogg`)
                         .on('finish', () => {
                             this.queue.shift()
-                            fs.unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
+                            unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
                                 if (this.queue.length > 0) {
                                     this.speak()
                                 }
