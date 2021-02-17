@@ -22,6 +22,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install
+    - name: Run linters
+      uses: wearerequired/lint-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # Enable linters
+        eslint: true
+        prettier: true
     - run: |
         touch .env
         echo DISCORD=${{ secrets.DISCORD }} >> .env
