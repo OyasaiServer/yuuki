@@ -6,6 +6,7 @@ import {
 } from "@typeit/discord";
 import Config from "./Config.js";
 import VoiceManager from "./VoiceManager";
+import { mkdir } from 'fs'
 
 @Discord()
 export abstract class Yuuki {
@@ -18,7 +19,8 @@ export abstract class Yuuki {
         client: Client,
     ) {
         Yuuki.instance = client
-        Config.load()
+        Config.load();
+        ["assets", "assets/voice", "assets/image"].forEach(it => mkdir(it, () => {}))
     }
 
     @On("message")
