@@ -1,30 +1,23 @@
 {
   "name": "yuuki",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/OyasaiServer/yuuki.git",
-  "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
   "license": "MIT",
+  "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint src/*.ts --fix && prettier src/*.ts --write",
-    "test": "tsc && npm start",
     "build": "tsc",
-    "start": "node ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo 'Hello'"
-    }
+    "lint": "eslint src/*.ts --fix && prettier src/*.ts --write",
+    "start": "node .",
+    "test": "tsc && npm start"
   },
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "@typeit/discord": "^4.0.9",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "eslint-config-google": "^0.14.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.2.7",
-    "husky": "^5.0.9",
     "toml": "^3.0.0",
     "tslib": "^2.1.0",
     "voice-text": "^0.1.2"
@@ -34,7 +27,9 @@
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",
+    "eslint-config-google": "^0.14.0",
     "gts": "^3.1.0",
+    "husky": "^5.0.9",
     "prettier": "^2.2.1",
     "typescript": "^4.1.5"
   }
