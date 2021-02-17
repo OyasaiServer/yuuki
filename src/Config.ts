@@ -1,8 +1,7 @@
-import { parse } from 'toml'
-import { readFileSync } from 'fs'
+import {parse} from 'toml';
+import {readFileSync} from 'fs';
 
 export default class Config {
-
     static channels: {
         text: {
             1: string,
@@ -17,10 +16,9 @@ export default class Config {
     } | undefined
 
     static load() {
-        Object.assign(
-            this,
-            parse(readFileSync("config.toml").toString())
-        )
+      Object.assign(
+          this,
+          parse(readFileSync('config.toml').toString()),
+      );
     }
-
 }
