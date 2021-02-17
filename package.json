@@ -11,6 +11,11 @@
     "build": "tsc",
     "start": "node ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'Hello'"
+    }
+  },
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "@typeit/discord": "^4.0.9",
@@ -19,6 +24,7 @@
     "eslint-config-google": "^0.14.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.2.7",
+    "husky": "^5.0.9",
     "toml": "^3.0.0",
     "tslib": "^2.1.0",
     "voice-text": "^0.1.2"
