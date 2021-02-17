@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19c02c7f-bf2d-4fcb-8909-e831e0941e43" name="デフォルト変更リスト" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/lint.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VoiceManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoiceManager.ts" afterDir="false" />
@@ -94,7 +95,7 @@
       <workItem from="1613417817077" duration="689000" />
       <workItem from="1613442577327" duration="1221000" />
       <workItem from="1613577396143" duration="9731000" />
-      <workItem from="1613588069123" duration="693000" />
+      <workItem from="1613588069123" duration="6403000" />
     </task>
     <servers />
   </component>
