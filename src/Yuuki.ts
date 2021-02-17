@@ -5,6 +5,7 @@ import {
     ArgsOf
 } from "@typeit/discord";
 import Config from "./Config.js";
+import VoiceManager from "./VoiceManager";
 
 @Discord()
 export abstract class Yuuki {
@@ -26,7 +27,7 @@ export abstract class Yuuki {
     ) {
         if (message.author.bot) return
         if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
-
+            VoiceManager.append(message)
         }
     }
 
