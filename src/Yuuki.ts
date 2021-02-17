@@ -4,17 +4,30 @@ import {
     Client,
     ArgsOf
 } from "@typeit/discord";
+import Config from "./Config.js";
 
 @Discord()
 export abstract class Yuuki {
 
-    @On("message")
-    private onMessage(
+    static instance: Client
+
+    @On("ready")
+    private onReady(
         [message]: ArgsOf<"message">,
         client: Client,
     ) {
-        console.log(
-        )
+        Yuuki.instance = client
+        Config.load()
+    }
+
+    @On("message")
+    private onMessage(
+        [message]: ArgsOf<"message">
+    ) {
+        if (message.author.bot) return
+        if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
+
+        }
     }
 
 }
