@@ -1,8 +1,8 @@
+import Config from './Config'
 import { Message, VoiceChannel } from 'discord.js'
 import { createWriteStream, unlink } from 'fs'
 import { VoiceText } from 'voice-text'
-import { Yuuki } from './Yuuki.js'
-import Config from './Config'
+import { Yuuki } from './Yuuki'
 
 export default class VoiceManager {
 	static queue: Promise<{

@@ -1,10 +1,10 @@
-import { Discord, On, Client, ArgsOf } from '@typeit/discord'
-import Config from './Config.js'
+import Config from './Config'
 import VoiceManager from './VoiceManager'
+import { Discord, On, Client, ArgsOf } from '@typeit/discord'
 import { mkdir } from 'fs'
 
 @Discord()
-export abstract class Yuuki {
+export class Yuuki {
 	static instance: Client
 
 	@On('ready')
