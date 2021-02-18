@@ -32,7 +32,11 @@ export class Yuuki {
 		Yuuki.setState(client).then(() => {
 			if (message.author.bot) return
 			if (message.channel.id === Config.channels?.japanese) {
-				LocaleManager.append(message)
+				if (message.webhookID) {
+					if (LocaleManager.isShouldTransliterate(message.content)) {
+						LocaleManager.append(message)
+					}
+				}
 			} else if (
 				Object.values(Config.channels!!.text).includes(message.channel.id)
 			) {
