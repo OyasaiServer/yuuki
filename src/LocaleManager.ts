@@ -6,4 +6,8 @@ export default class LocaleManager {
 		transliterated: string
 	}>[] = []
 	static append(message: Message) {}
+
+	static isShouldTransliterate(content: string) {
+		return content.match(/^[A-Za-z]+$/)
+	}
 }

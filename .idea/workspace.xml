@@ -5,11 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LocaleManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocaleManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VoiceManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoiceManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Yuuki.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Yuuki.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
