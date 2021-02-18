@@ -4,6 +4,7 @@ import { readFileSync } from 'fs'
 export default class Config {
 	static channels:
 		| {
+				japanese: string
 				text: {
 					1: string
 					2: string
