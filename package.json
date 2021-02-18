@@ -19,10 +19,12 @@
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "@typeit/discord": "^4.0.9",
+    "@types/log4js": "^2.3.5",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.2.7",
+    "log4js": "^6.3.0",
     "node-fetch": "^2.6.1",
     "toml": "^3.0.0",
     "tslib": "^2.1.0",
