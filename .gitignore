@@ -1,6 +1,7 @@
 # User defined
 bin
 assets
+build
 
 # Logs
 logs

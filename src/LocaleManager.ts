@@ -2,6 +2,9 @@ import { Message } from 'discord.js'
 import { Yuuki } from './Yuuki'
 import fetch from 'node-fetch'
 import { tree } from './Tree'
+import bindings from 'bindings'
+
+const addon = bindings('addon')
 
 export default class LocaleManager {
 	static queue: Promise<{
@@ -14,7 +17,7 @@ export default class LocaleManager {
 		this.queue.push(
 			new Promise(resolve => {
 				fetch(
-					`http://www.google.com/transliterate?langpair=ja-Hira|ja&text=${encodeURIComponent(
+					`http://www.google.com/transliterate?langpair=ja-Hira|ja&text=${addon.encode(
 						this.japanize(message.content)
 					)}`
 				)

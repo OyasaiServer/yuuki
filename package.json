@@ -6,10 +6,10 @@
   "author": "Shun Ueda <62182668+Kotlia@users.noreply.github.com>",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "node-gyp build && tsc",
     "lint": "eslint src/*.ts --fix && prettier src/*.ts --write",
     "start": "node .",
-    "test": "tsc && npm start"
+    "test": "npm run build && npm start"
   },
   "lint-staged": {
     "*.ts": [
@@ -19,11 +19,15 @@
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "@typeit/discord": "^4.0.9",
+    "bindings": "^1.5.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.2.7",
+    "log4js": "^6.3.0",
+    "node-addon-api": "^3.1.0",
     "node-fetch": "^2.6.1",
+    "node-gyp": "^7.1.2",
     "toml": "^3.0.0",
     "tslib": "^2.1.0",
     "voice-text": "^0.1.2"
@@ -31,6 +35,8 @@
   "devDependencies": {
     "@types/node": "^14.14.25",
     "@types/node-fetch": "^2.5.8",
+    "@types/bindings": "^1.5.0",
+    "@types/log4js": "^2.3.5",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",

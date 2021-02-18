@@ -4,6 +4,8 @@
     "allowUnusedLabels": false,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "module": "commonjs",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -22,7 +24,8 @@
       "es2017",
       "es2018",
       "esnext.asynciterable"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",
