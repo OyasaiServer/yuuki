@@ -8,8 +8,7 @@ export class Yuuki {
 	static instance: Client
 
 	@On('ready')
-	private onReady(client: Client) {
-		Yuuki.instance = client
+	private onReady() {
 		Config.load()
 		;['assets', 'assets/voice', 'assets/image'].forEach(it =>
 			mkdir(it, () => {})
@@ -17,7 +16,8 @@ export class Yuuki {
 	}
 
 	@On('message')
-	private onMessage([message]: ArgsOf<'message'>) {
+	private onMessage([message]: ArgsOf<'message'>, client: Client) {
+		Yuuki.instance = client
 		if (message.author.bot) return
 		if (Object.values(Config.channels!!.text).includes(message.channel.id)) {
 			VoiceManager.append(message)
