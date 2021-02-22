@@ -36,7 +36,12 @@ export default class VoiceManager {
 								mg: message.id
 							})
 						})
-					} catch (e) {}
+					} catch (e) {
+						resolve({
+							vc: '0',
+							mg: ''
+						})
+					}
 				})
 			)
 			if (this.queue.length === 1) {
