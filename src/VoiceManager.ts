@@ -14,25 +14,29 @@ export default class VoiceManager {
 		if (this.isShouldSpeak(message.content)) {
 			this.queue.push(
 				new Promise(resolve => {
-					const i = Object.values(Config.channels!!.text).indexOf(
-						message.channel.id
-					)
-					const vc = Object.values(Config.channels!!.voice)[i]
-					const ws = createWriteStream(`./assets/voice/${vc}_${message.id}.ogg`)
-					new VoiceText(process.env.VOICETEXT)
-						.stream(message.content, {
-							format: 'ogg',
-							speaker: 'show',
-							pitch: '150',
-							speed: '150'
+					try {
+						const i = Object.values(Config.channels!!.text).indexOf(
+							message.channel.id
+						)
+						const vc = Object.values(Config.channels!!.voice)[i]
+						const ws = createWriteStream(
+							`./assets/voice/${vc}_${message.id}.ogg`
+						)
+						new VoiceText(process.env.VOICETEXT)
+							.stream(message.content, {
+								format: 'ogg',
+								speaker: 'show',
+								pitch: '150',
+								speed: '150'
+							})
+							.pipe(ws)
+						ws.on('finish', () => {
+							resolve({
+								vc: vc,
+								mg: message.id
+							})
 						})
-						.pipe(ws)
-					ws.on('finish', () => {
-						resolve({
-							vc: vc,
-							mg: message.id
-						})
-					})
+					} catch (e) {}
 				})
 			)
 			if (this.queue.length === 1) {
