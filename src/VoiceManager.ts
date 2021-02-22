@@ -18,7 +18,7 @@ export default class VoiceManager {
 						message.channel.id
 					)
 					const vc = Object.values(Config.channels!!.voice)[i]
-					const ws = createWriteStream(`./assets/voice/${vc}_${message.id}.ogg`)
+					const ws = createWriteStream(`assets/voice/${vc}_${message.id}.ogg`)
 					new VoiceText(process.env.VOICETEXT)
 						.stream(message.content, {
 							format: 'ogg',
@@ -46,14 +46,16 @@ export default class VoiceManager {
 			;(<VoiceChannel>Yuuki.instance.channels.cache.get(id.vc))
 				.join()
 				.then(conn => {
-					conn.play(`./assets/voice/${id.vc}_${id.mg}.ogg`).on('finish', () => {
-						this.queue.shift()
-						unlink(`./assets/voice/${id.vc}_${id.mg}.ogg`, () => {
-							if (this.queue.length > 0) {
-								this.speak()
-							}
+					try {
+						conn.play(`assets/voice/${id.vc}_${id.mg}.ogg`).on('finish', () => {
+							this.queue.shift()
+							unlink(`assets/voice/${id.vc}_${id.mg}.ogg`, () => {
+								if (this.queue.length > 0) {
+									this.speak()
+								}
+							})
 						})
-					})
+					} catch (e) {}
 				})
 		})
 	}
