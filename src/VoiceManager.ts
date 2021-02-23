@@ -36,6 +36,12 @@ export default class VoiceManager {
 								mg: message.id
 							})
 						})
+						ws.on('error', () => {
+													resolve({
+							vc: '0',
+							mg: ''
+						})
+						})
 					} catch (e) {
 						resolve({
 							vc: '0',
