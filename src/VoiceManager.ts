@@ -37,10 +37,10 @@ export default class VoiceManager {
 							})
 						})
 						ws.on('error', () => {
-													resolve({
-							vc: '0',
-							mg: ''
-						})
+							resolve({
+								vc: '0',
+								mg: ''
+							})
 						})
 					} catch (e) {
 						resolve({
@@ -57,24 +57,27 @@ export default class VoiceManager {
 	}
 
 	static speak() {
-		this.queue[0].then(id => {
-			;(<VoiceChannel>Yuuki.instance.channels.cache.get(id.vc))
-				.join()
-				.then(conn => {
-					try {
-						conn
-							.play(`./assets/voice/${id.vc}_${id.mg}.ogg`)
-							.on('finish', () => {
-								this.queue.shift()
-								unlink(`./assets/voice/${id.vc}_${id.mg}.ogg`, () => {
-									if (this.queue.length > 0) {
-										this.speak()
-									}
+		try {
+			this.queue[0]
+				.then(id => {
+					;(<VoiceChannel>Yuuki.instance.channels.cache.get(id.vc))
+						.join()
+						.then(conn => {
+							conn
+								.play(`./assets/voice/${id.vc}_${id.mg}.ogg`)
+								.on('finish', () => {
+									this.queue.shift()
+									unlink(`./assets/voice/${id.vc}_${id.mg}.ogg`, () => {
+										if (this.queue.length > 0) {
+											this.speak()
+										}
+									})
 								})
-							})
-					} catch (e) {}
+						})
+						.catch()
 				})
-		})
+				.catch()
+		} catch (e) {}
 	}
 
 	static isShouldSpeak(content: string) {
