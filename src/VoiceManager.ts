@@ -61,8 +61,8 @@ export default class VoiceManager {
 			this.queue[0]
 				.then(id => {
 					;(<VoiceChannel>Yuuki.instance.channels.cache.get(id.vc))
-						.join()
-						.then(conn => {
+						?.join()
+						?.then(conn => {
 							conn
 								.play(`./assets/voice/${id.vc}_${id.mg}.ogg`)
 								.on('finish', () => {
@@ -74,9 +74,9 @@ export default class VoiceManager {
 									})
 								})
 						})
-						.catch()
+						?.catch()
 				})
-				.catch()
+				?.catch()
 		} catch (e) {}
 	}
 
