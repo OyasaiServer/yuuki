@@ -19,8 +19,15 @@ export default class VoiceManager {
 					)
 					const vc = Object.values(Config.channels!!.voice)[i]
 					const ws = createWriteStream(`./assets/voice/${vc}_${message.id}.ogg`)
+					let content = message.content
+					switch (message.content) {
+						case '木下愛斗': {
+							content = 'きのしたまなと'
+							break
+						}
+					}
 					new VoiceText(process.env.VOICETEXT)
-						.stream(message.content, {
+						.stream(content, {
 							format: 'ogg',
 							speaker: 'show',
 							pitch: '150',
