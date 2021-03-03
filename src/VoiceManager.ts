@@ -8,46 +8,34 @@ export default class VoiceManager {
 	static queue: Promise<{
 		vc: string
 		mg: string
-	}>[] = []
+	} | null>[] = []
 
 	static append(message: Message) {
 		if (this.isShouldSpeak(message.content)) {
 			this.queue.push(
 				new Promise(resolve => {
-					try {
-						const i = Object.values(Config.channels!!.text).indexOf(
-							message.channel.id
-						)
-						const vc = Object.values(Config.channels!!.voice)[i]
-						const ws = createWriteStream(
-							`./assets/voice/${vc}_${message.id}.ogg`
-						)
-						new VoiceText(process.env.VOICETEXT)
-							.stream(message.content, {
-								format: 'ogg',
-								speaker: 'show',
-								pitch: '150',
-								speed: '150'
-							})
-							.pipe(ws)
-						ws.on('finish', () => {
-							resolve({
-								vc: vc,
-								mg: message.id
-							})
+					const i = Object.values(Config.channels!!.text).indexOf(
+						message.channel.id
+					)
+					const vc = Object.values(Config.channels!!.voice)[i]
+					const ws = createWriteStream(`./assets/voice/${vc}_${message.id}.ogg`)
+					new VoiceText(process.env.VOICETEXT)
+						.stream(message.content, {
+							format: 'ogg',
+							speaker: 'show',
+							pitch: '150',
+							speed: '150'
 						})
-						ws.on('error', () => {
-							resolve({
-								vc: '0',
-								mg: ''
-							})
-						})
-					} catch (e) {
+						.pipe(ws)
+					ws.on('finish', () => {
 						resolve({
-							vc: '0',
-							mg: ''
+							vc: vc,
+							mg: message.id
 						})
-					}
+					})
+					ws.on('error', () => {
+						resolve(null)
+					})
 				})
 			)
 			if (this.queue.length === 1) {
@@ -57,27 +45,27 @@ export default class VoiceManager {
 	}
 
 	static speak() {
-		try {
-			this.queue[0]
-				.then(id => {
-					;(<VoiceChannel>Yuuki.instance.channels.cache.get(id.vc))
-						.join()
-						.then(conn => {
-							conn
-								.play(`./assets/voice/${id.vc}_${id.mg}.ogg`)
-								.on('finish', () => {
-									this.queue.shift()
-									unlink(`./assets/voice/${id.vc}_${id.mg}.ogg`, () => {
-										if (this.queue.length > 0) {
-											this.speak()
-										}
-									})
+		this.queue[0].then(id => {
+			if (id) {
+				const channelInstance = <VoiceChannel>(
+					Yuuki.instance.channels.cache.get(id.vc)
+				)
+				if (channelInstance) {
+					channelInstance.join().then(conn => {
+						conn
+							.play(`./assets/voice/${id.vc}_${id.mg}.ogg`)
+							.on('finish', () => {
+								this.queue.shift()
+								unlink(`./assets/voice/${id.vc}_${id.mg}.ogg`, () => {
+									if (this.queue.length > 0) {
+										this.speak()
+									}
 								})
-						})
-						.catch()
-				})
-				.catch()
-		} catch (e) {}
+							})
+					})
+				}
+			}
+		})
 	}
 
 	static isShouldSpeak(content: string) {
