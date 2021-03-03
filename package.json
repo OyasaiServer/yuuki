@@ -8,8 +8,7 @@
   "scripts": {
     "build": "node-gyp build && tsc",
     "lint": "eslint src/*.ts --fix && prettier src/*.ts --write",
-    "start": "node .",
-    "test": "npm run build && npm start"
+    "start": "npm run build && node ."
   },
   "lint-staged": {
     "*.ts": [
