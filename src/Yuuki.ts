@@ -4,6 +4,7 @@ import { Discord, On, Client, ArgsOf } from '@typeit/discord'
 import { mkdir } from 'fs'
 import LocaleManager from './LocaleManager'
 import { TextChannel, Webhook } from 'discord.js'
+import fetch from 'node-fetch'
 
 @Discord()
 export class Yuuki {
@@ -31,7 +32,20 @@ export class Yuuki {
 	private onMessage([message]: ArgsOf<'message'>, client: Client) {
 		Yuuki.setState(client).then(() => {
 			if (message.author.bot) return
-			if (message.channel.id === Config.channels?.japanese) {
+			if (message.content == '/session') {
+				fetch('http://status.mojang.com/check')
+					.then(res => res.json())
+					.then(res => {
+						const status = res.filter(it =>
+							it.hasOwnProperty('sessionserver.mojang.com')
+						)[0]['sessionserver.mojang.com']
+						message.reply(
+							status === 'red'
+								? 'Session server is UP!'
+								: 'Session server is DOWN!'
+						)
+					})
+			} else if (message.channel.id === Config.channels?.japanese) {
 				if (message.webhookID) {
 					if (LocaleManager.isShouldTransliterate(message.content)) {
 						LocaleManager.append(message)

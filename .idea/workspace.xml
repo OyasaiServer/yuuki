@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="19c02c7f-bf2d-4fcb-8909-e831e0941e43" name="デフォルト変更リスト" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Yuuki.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Yuuki.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +48,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\shunu\Documents\github\js\yuuki\node_modules\prettier" />
     <property name="project.structure.last.edited" value="モジュール" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -82,7 +81,8 @@
       <workItem from="1613990437760" duration="2380000" />
       <workItem from="1614292114096" duration="1312000" />
       <workItem from="1614364051506" duration="680000" />
-      <workItem from="1614806041256" duration="356000" />
+      <workItem from="1614806041256" duration="2104000" />
+      <workItem from="1615128444989" duration="321000" />
     </task>
     <servers />
   </component>
